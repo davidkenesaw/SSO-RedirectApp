@@ -1,6 +1,11 @@
 const express = require('express')
 const axios = require('axios')
 //const {DecodeToken, verifyToken} = require('sso-npm')
+const path = require('path')
+require('dotenv').config({
+    path: path.resolve(__dirname, '../../.env')
+})
+
 
 const app = express()
 
@@ -8,7 +13,7 @@ async function DecodeToken(Token) {
     //
     
     //
-    let authResponse = await axios.post('http://127.0.0.1:5000/' + "Token/decode_token",
+    let authResponse = await axios.post(process.env.REQHOST + "Token/decode_token",
     {//
         Token:Token,
         
