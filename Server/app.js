@@ -8,6 +8,9 @@ require('dotenv').config({
 
 
 const app = express()
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../Client/views'));//show express the views directory
+
 
 async function DecodeToken(Token) {
     //
@@ -50,7 +53,8 @@ app.get("/home/:Token", verifyToken, async(req, res) => {
     console.log("token" + Token)
     const response = await DecodeToken(Token)
     console.log(response)
-    res.send(response.user)
+    res.cookie("Token", Token)
+    res.render('Dashboard',{response})
 
 })
 
