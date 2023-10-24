@@ -34,10 +34,12 @@ async function DecodeToken(Token) {
 
 async function verifyToken(req,res,next){
     //verify if token is on users browser
-    let Token = req.params.Token 
-    let response = await DecodeToken(Token)
-    if(response.error == "Invalid token" || response.error == "expired" || !Token){
-        return res.redirect("/")
+    if(!req.cookies.Token){
+        return res.redirect("/Login")
+    }
+    let response = await DecodeToken(req.cookies.Token)
+    if(response.error == "Invalid token" || response.error == "expired"){
+        return res.redirect("/Login")
     }next()
 }
 
