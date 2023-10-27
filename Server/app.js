@@ -10,7 +10,7 @@ require('dotenv').config({
 const app = express()
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../Client/views'));//show express the views directory
-
+app.use('/Partials',express.static(path.join(__dirname, '../Client/Partials')));
 
 async function DecodeToken(Token) {
     //
