@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%- include('../Partials/BootStrap.ejs') %>
+    <style>
+        #pic {
+            background: url("../images/example.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            height: 400px;
+        }
+        #words {
+            height: 400px;
+        }
+    </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+<body >
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand ps-2" href="/">TestApp1</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -20,16 +32,18 @@
             </ul>
         </div>
     </nav>
-            
-    <div class="text-center mx-auto mt-1 pt-5" style="width: 480px;">
+    <div class="text-center mx-auto mt-1 pt-5" id="pic">
+        
+    </div>        
+    <div class="text-center mx-auto mt-1 pt-5" style="width: 480px;" id="words">
         <div class="text-center mx-auto mt-1 pt-5" style="width: 480px;">
             
-            <h2 class="h3 mb-3 front-weight-normal">App 1</h2>
-            <p>This is an example application</p>
+            <h2 class="h3 mb-3 front-weight-normal">TestApp1</h2>
+            <p>Welcome to the TestApp1 <%= response.user %>!</p>
                     
         
         </div>
     </div>
-        
+    <%- include('../Partials/Footer.ejs') %>    
 </body>
 </html>
