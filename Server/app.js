@@ -49,7 +49,7 @@ async function verifyToken(req,res,next){
 
 app.get("/", (req, res) => {
     
-    res.send('token expired')
+    res.redirect('http://www.protectesso.org/Login')
 
 })
 app.get("/home/:Token", verifyToken, async(req, res) => {
